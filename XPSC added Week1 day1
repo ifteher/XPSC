@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+ int n,m;
+ cin>>n>>m;
+ vector<int>v(n),a(m);
+ for(int i=0;i<n;i++)
+ {
+    cin>>v[i];
+ }
+  for(int i=0;i<m;i++)
+ {
+    cin>>a[i];
+ }
+ long long l=0,r=0,ans=0;;
+ while(l<n && r<m)
+ {
+    long long cur=v[l],cnt1=0,cnt2=0;
+    while(v[l]==cur && l<n)
+    {
+      cnt1++;
+      l++;
+    }
+    while(cur>a[r] && r<m)
+    {
+        r++;
+    }
+    while(a[r]==cur &&r<m)
+    {
+        cnt2++;
+        r++;
+    }
+    ans+=(cnt1*cnt2);
+ }
+ cout<<ans<<endl;
+return 0;
+}
